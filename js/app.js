@@ -1,75 +1,86 @@
 
 function enter(event) {
-  
+  var statusinput =  $("#pergunta").attr('status');
+  console.log("status input", statusinput);
+
   if (event.keyCode === 13) {
-    $("#pergunta").attr('disabled', true);
+    // $("#pergunta").attr('status', "true");
     
-    var foto = window.localStorage.getItem('foto-src');
-    var pergunta = document.querySelector("#pergunta").value;
-    var fotoimg;
 
-    var fotoInput = document.querySelector("#uploadFoto");
+    if(statusinput == "true"){
+        $("#pergunta").attr('status', "false");
+        var foto = window.localStorage.getItem('foto-src');
+        var pergunta = document.querySelector("#pergunta").value;
+        var fotoimg;
 
-    if(fotoInput.files.length > 0){
-            if(foto == undefined || foto == '' || foto == null){
-        fotoimg = '';
+        var fotoInput = document.querySelector("#uploadFoto");
+
+        if(fotoInput.files.length > 0){
+                if(foto == undefined || foto == '' || foto == null){
+            fotoimg = '';
+            }else{
+                fotoimg = `<br><img src="${foto}" class="img-send"/>`;
+            }
+
+            var html = `<li class="clearfix">
+                            <div class="message-data text-right">
+                              
+                            </div>
+                            <div class="message other-message float-right">${pergunta}${fotoimg}</div>
+                        </li>`;
+
+
+            $("#chat-load").append(html);
+
+            gemine(pergunta);
+
+            var suaDiv = document.querySelector(".chat-history");
+                suaDiv.scrollTop = suaDiv.scrollHeight;
+
+                 
         }else{
-            fotoimg = `<br><img src="${foto}" class="img-send"/>`;
+
+            if(foto == undefined || foto == '' || foto == null){
+                fotoimg = '';
+            }else{
+                fotoimg = `<br><img src="${foto}"/>`;
+            }
+
+            var html = `<li class="clearfix">
+                            <div class="message-data text-right">
+                               
+                            </div>
+                            <div class="message other-message float-right">${pergunta}</div>
+                        </li>`;
+
+
+            $("#chat-load").append(html);
+
+          
+            gemine(pergunta);
+
+            var suaDiv = document.querySelector(".chat-history");
+                suaDiv.scrollTop = suaDiv.scrollHeight;
+
+               
         }
 
-        var html = `<li class="clearfix">
-                        <div class="message-data text-right">
-                          
-                        </div>
-                        <div class="message other-message float-right">${pergunta}${fotoimg}</div>
-                    </li>`;
 
 
-        $("#chat-load").append(html);
-
-        gemine();
-
-        var suaDiv = document.querySelector(".chat-history");
-            suaDiv.scrollTop = suaDiv.scrollHeight;
-
-             
     }else{
 
-        if(foto == undefined || foto == '' || foto == null){
-            fotoimg = '';
-        }else{
-            fotoimg = `<br><img src="${foto}"/>`;
-        }
-
-        var html = `<li class="clearfix">
-                        <div class="message-data text-right">
-                           
-                        </div>
-                        <div class="message other-message float-right">${pergunta}</div>
-                    </li>`;
-
-
-        $("#chat-load").append(html);
-
-      
-        gemine();
-
-        var suaDiv = document.querySelector(".chat-history");
-            suaDiv.scrollTop = suaDiv.scrollHeight;
-
-           
     }
-
-  }
+  }//enter
 }
 
-function gemine() {
+function gemine(pergunta) {
+  $("#pergunta").val('')
   $(".digitando").css('opacity', "1");
   // setTimeout(function(){
   //   $(".digitando").css('opacity', "1");
   // },500);
   
-  var pergunta = $("#pergunta").val();
+  //var pergunta = $("#pergunta").val();
   var fotoInput = document.querySelector("#uploadFoto");
   var foto = window.localStorage.getItem('foto');
   var text001 =     decrypt("gemini-pro", geminiKey());
@@ -77,6 +88,7 @@ function gemine() {
   var model_image = decrypt("gemini-pro", "0f1119191d53025f150a09001f081a005b151e0e09021808090c03171d00000908081e005e5e11000a4a1b580c0c59115d02080108051d464a151f06090c40191c0600061b1c0e0a0353090c4315000e13002e06001d481e06500c001454") + text001;
   var model_text =  decrypt("gemini-pro", "0f1119191d53025f150a09001f081a005b151e0e09021808090c03171d00000908081e005e5e11000a4a1b580c0c59115d02080108051d464a151f06090c40191c061717170102170c1d0b2a421e060a091152020b1010") + text001;
   
+
 
   if (fotoInput.files.length > 0) {
    
@@ -131,7 +143,7 @@ function gemine() {
                 // setConversa(obj.candidates[0].content.parts[0].text, 'model', 'gemini-pro', '');
 
                  $("#pergunta").val('');
-                 $("#pergunta").attr('disabled', false);
+                 $("#pergunta").attr('status', "true");
                  $("#pergunta").focus();
                  $(".digitando").css('opacity', "0");
 
@@ -157,7 +169,7 @@ function gemine() {
                 // setConversa(obj.candidates[0].content.parts[0].text, 'model', 'gemini-pro', '');
 
                  $("#pergunta").val('');
-                 $("#pergunta").attr('disabled', false);
+                 $("#pergunta").attr('status', "true");
                  $("#pergunta").focus();
                  $(".digitando").css('opacity', "0");
 
@@ -186,7 +198,7 @@ function gemine() {
                     setConversa(obj.candidates[0].content.parts[0].text, 'model', 'gemini-pro-vision', foto);
 
                      $("#pergunta").val('');
-                     $("#pergunta").attr('disabled', false);
+                     $("#pergunta").attr('status', "true");
                      $("#pergunta").focus();
                      $(".digitando").css('opacity', "0");
 
@@ -222,7 +234,7 @@ function gemine() {
                 // setConversa(obj.candidates[0].content.parts[0].text, 'model', 'gemini-pro', '');
 
                  $("#pergunta").val('');
-                 $("#pergunta").attr('disabled', false);
+                 $("#pergunta").attr('status', "true");
                  $("#pergunta").focus();
                  $(".digitando").css('opacity', "0");
 
@@ -263,32 +275,17 @@ function gemine() {
                     parts: [{ text: pergunta }]
                   });
 
-
-        // // Removendo os campos inline_data e objetos vazios dentro de parts
-        // hist.forEach(function(item) {
-        //     item.parts = item.parts.filter(function(part) {
-        //         return part.text != null && part.text.trim() !== '';
-        //     });
-        // });
-
-        // // Removendo objetos principais que não têm elementos em parts
-        // hist = hist.filter(function(item) {
-        //     return item.parts.length > 0;
-        // });
-
-
-
         data = {
           contents: hist,
-          generationConfig: {
-            stopSequences: ["Title"],
-            temperature: 1,
-            maxOutputTokens: 800,
-            topP: 0.8,
-            topK: 1
-          }
-        };
-      }
+            generationConfig: {
+              stopSequences: ["Title"],
+              temperature: 1,
+              maxOutputTokens: 800,
+              topP: 0.8,
+              topK: 1
+            }
+          };
+        }
 
 
         fetch(model_text, {
@@ -323,12 +320,9 @@ function gemine() {
 
                 FinalScroll();
 
-                // setConversa(pergunta, 'user','gemini-pro', '');
-
-                // setConversa(obj.candidates[0].content.parts[0].text, 'model', 'gemini-pro', '');
-
+        
                  $("#pergunta").val('');
-                 $("#pergunta").attr('disabled', false);
+                 $("#pergunta").attr('status', "true");
                  $("#pergunta").focus();
                  $(".digitando").css('opacity', "0");
 
@@ -354,7 +348,7 @@ function gemine() {
                 // setConversa(obj.candidates[0].content.parts[0].text, 'model', 'gemini-pro', '');
 
                  $("#pergunta").val('');
-                 $("#pergunta").attr('disabled', false);
+                 $("#pergunta").attr('status', "true");
                  $("#pergunta").focus();
                  $(".digitando").css('opacity', "0");
 
@@ -381,7 +375,7 @@ function gemine() {
                 setConversa(obj.candidates[0].content.parts[0].text, 'model', 'gemini-pro', '');
 
                  $("#pergunta").val('');
-                 $("#pergunta").attr('disabled', false);
+                 $("#pergunta").attr('status', "true");
                  $("#pergunta").focus();
                  $(".digitando").css('opacity', "0");
                  hljs.highlightAll();

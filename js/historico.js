@@ -3,13 +3,6 @@ function FinalScroll(){
        suaDiv.scrollTop = suaDiv.scrollHeight;
 }
 
-// function obterHoraEDataAtual() { 
-//      let data = new Date(); 
-//      let hora = data.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }); 
-//      let dataFormatada = data.toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }); 
-//      return `${hora}, ${dataFormatada}`; 
-// } 
-
 function obterHoraEDataAtual() {
     let data = new Date();
     let dia = String(data.getDate()).padStart(2, '0');
