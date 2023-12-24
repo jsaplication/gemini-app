@@ -131,7 +131,7 @@ function gemine(pergunta) {
                               <div class="message-data">
                                
                               </div>
-                              <div class="message my-message" style="color: red">Erro na solicitação</div>                                    
+                              <div class="message my-message" style="color: red">Request error. if the error persists, configure a personal APIKEY</div>                                    
                             </li>`;
 
                 $("#chat-load").append(html);
@@ -157,7 +157,7 @@ function gemine(pergunta) {
                               <div class="message-data">
                                 
                               </div>
-                              <div class="message my-message" style="color: red">Erro na solicitação</div>                                    
+                              <div class="message my-message" style="color: red">Request error. if the error persists, configure a personal APIKEY</div>                                    
                             </li>`;
 
                 $("#chat-load").append(html);
@@ -222,7 +222,7 @@ function gemine(pergunta) {
                               <div class="message-data">
                                
                               </div>
-                              <div class="message my-message" style="color: red">Erro na solicitação</div>                                    
+                              <div class="message my-message" style="color: red">Request error. if the error persists, configure a personal APIKEY</div>                                    
                             </li>`;
 
                 $("#chat-load").append(html);
@@ -313,7 +313,7 @@ function gemine(pergunta) {
                               <div class="message-data">
                                
                               </div>
-                              <div class="message my-message" style="color: red">Erro na solicitação</div>                                    
+                              <div class="message my-message" style="color: red">Request error. if the error persists, configure a personal APIKEY</div>                                    
                             </li>`;
 
                 $("#chat-load").append(html);
@@ -336,7 +336,7 @@ function gemine(pergunta) {
                               <div class="message-data">
                                
                               </div>
-                              <div class="message my-message" style="color: red">Erro na solicitação</div>                                    
+                              <div class="message my-message" style="color: red">Request error. if the error persists, configure a personal APIKEY</div>                                    
                             </li>`;
 
                 $("#chat-load").append(html);
@@ -402,3 +402,54 @@ function gemine(pergunta) {
 //   $(".menu a i").toggleClass('fa-times')
 // }
 
+function removerEspacos(texto) {
+  // Expressão regular para encontrar espaços em branco
+  const regex = /\s+/g;
+
+  // Substitui os espaços em branco por uma string vazia
+  return texto.replace(regex, "");
+}
+
+
+function default_apikey(){
+  console.log('hello');
+  window.localStorage.setItem('my_apikey', "");
+  $("#input_apikey").val('');
+  $("#config-apikey").modal('hide');
+}
+
+function save_apikey(){
+  var api = $("#input_apikey").val();
+  console.log('hello', removerEspacos(api));
+
+  if(removerEspacos(api) == ''){
+    console.log('apikey vazia')
+  }else{
+    var apix = encrypt("gemini-pro",removerEspacos(api));
+    window.localStorage.setItem('my_apikey', apix);
+    console.log('apikey api salva')
+
+    $("#config-apikey").modal('hide');
+  }
+  
+}
+function openModalApi(){
+  var my_api = window.localStorage.getItem('my_apikey');
+ 
+
+  if(my_api == '' || my_api == undefined || my_api == null){
+    $("#input_apikey").val('');
+    $(".apikey").text('')
+  }else{
+    $("#input_apikey").val(decrypt('gemini-pro', my_api));
+    $(".apikey").text(decrypt('gemini-pro', my_api))
+  } 
+}
+setInterval(function(){
+  var my_api = window.localStorage.getItem('my_apikey');
+  if(my_api == '' || my_api == undefined || my_api == null){
+    $(".apikey").text('Not Configured')
+  }else{
+    $(".apikey").text('**********************')
+  } 
+},1000)

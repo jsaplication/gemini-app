@@ -449,9 +449,10 @@ input{
     opacity: 1;
 }
 #load-conversa{
-    height: calc(100% - 40px);
+    height: calc(100% - 200px);
     overflow-y: auto;
     padding-right: 20px;
+/*    background: red;*/
 }
 .hljs{
     background: none !important;
@@ -479,4 +480,49 @@ input{
     margin-bottom: 20px;
     padding-left: 30px;
     padding-right: 30px;
+}
+.box-config{
+    display: block;
+    padding: 10px;
+    color: #fff;
+    margin-top: 30px;
+    padding-right: 20px;
+}
+.box-config .title-api{
+    float: left;
+    font-weight: bold;
+    padding-right: 10px;
+    width: 70px;
+   
+}
+.box-config .apikey{
+   
+    float: right;
+    width: calc(100% - 80px);
+    word-wrap: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.box-config button{
+    margin-top: 20px;
+    width: 100%;
+}
+#config-apikey img{
+    border-radius: 10px;
+    margin-top: 10px;
+}
+#config-apikey .tt1{
+    margin-bottom: 20px !important;
+    
+    
+}
+.modal-content{
+    background: #333 !important;
+    color: #fafafa !important;
+}
+.modal-content .close{
+    color: #fff !important;
+}
+.modal-content input{
+    color: #fff !important;
 }

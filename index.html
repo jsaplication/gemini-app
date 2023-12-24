@@ -39,6 +39,12 @@
                         
 
                     </ul>
+
+                    <div class="box-config">
+                        <div class="title-api">ApiKey</div>
+                        <div class="apikey"></div>
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#config-apikey" onclick="openModalApi()"><i class="fa fa-cog"></i> Edit your ApiKey</button>
+                    </div>
                 </div>
                 <div class="chat">
                     <div class="chat-header clearfix">
@@ -66,7 +72,7 @@
                         </ul>
                     </div>
                     <div class="chat-message clearfix">
-                        <div class="digitando"><div class="ia"></div>Digitando...</div>
+                        <div class="digitando"><div class="ia"></div>Typing...</div>
                         <div class="input-group mb-0">
                             <!-- <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fa fa-send"></i></span>
@@ -85,7 +91,7 @@
                             </div>
 
 
-                            <input type="text" class="form-control" placeholder="No que você está pensando?" id="pergunta" onkeydown="enter(event)" autofocus status="true">                                    
+                            <input type="text" class="form-control" placeholder="What's on your mind?" id="pergunta" onkeydown="enter(event)" autofocus status="true">                                    
                         </div>
                     </div>
                 </div>
@@ -93,6 +99,70 @@
         </div>
     </div>
     </div>
+
+
+
+<div class="modal fade" id="config-apikey" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Model Configuration</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       
+        <div class="panel panel-default">
+              <!-- <div class="panel-heading">Configure sua ApiKey</div> -->
+              <div class="panel-body">
+                <div class="tt1">
+                    <b>1.</b> To fix the Gemini communication error and improve model performance, you can add your own API KEY by visiting the website: <b>https://makersuite.google.com/app/apikey</b>
+                    <br>
+                    <br>
+
+                     <b>2.</b> After creating the account or logging in with your Google account<br>
+                     <b>3.</b> Click on  <b>Create API key in new projectb</b>.
+                     <img src="img/suite.png" width="100%"/>
+                </div>
+
+
+               
+                <div class="tt1"> 
+                    <b>3.</b> Copy the key and paste it into the field below API_KEY<br>
+
+                     <img src="img/suite2.png" width="100%"/>
+
+
+                    <b>4.</b> Close the application and open it again.<br>
+
+                   
+
+                   
+                
+                 
+                </div>
+            </div>
+
+
+             <form>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">API_KEY:</label>
+                <input type="text" class="form-control" id="input_apikey" placeholder="Paste your ApiKey here">
+              </div>
+            </form>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="default_apikey()">Restore Default Settings</button>
+        <button type="button" class="btn btn-primary" onclick="save_apikey()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 <script src="js/jquery.js"></script>
 <script src="js/jquery-3.5.1.slim.min.js"></script>

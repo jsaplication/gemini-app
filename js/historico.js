@@ -334,11 +334,11 @@ var conversa = getConversa();
      $("#chat-load").html(`
                         <div class="bem-vindo">
                           <div class="box-bem">
-                         Como posso ajudá-lo hoje?
+                         How can I help you today?
                          <br>
 
-                         <span>O Gemini é a família mais recente de modelos de linguagem grandes do Google. Este Aplicativo contém todas as funcionalidades necessárias para você começar a testar o Gemini.</span>
-                        <button class="btn btn-primary" onclick="newChat()"><i class="fa fa-commenting-o"></i> Começar</button>
+                         <span>Gemini is Google's latest family of large language models. This Application contains all the necessary functionality for you to start testing Gemini.</span>
+                        <button class="btn btn-primary" onclick="newChat()"><i class="fa fa-commenting-o"></i> Chat with Gemini</button>
 
                         </div>
                         </div>`);

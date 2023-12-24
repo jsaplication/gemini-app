@@ -23,7 +23,10 @@ function decrypt(key,encoded) {
 
 
 function geminiKey() {
-  var apiKeys = [
+  var my_api = window.localStorage.getItem('my_apikey');
+  var api_returno;
+
+   var apiKeys = [
                "262c17083d10693d080a3d08023c315b57474b20283607281b2647244a0e3d23580b5f304f4811",
                "262c17083d106e2a131c353d372e0c0d193a23270809555f282c4429343635553f050f31454046",
                "262c17083d106e4601230d34323a19044224023d2a5d3b285d245c5d0b0b175440031b2f493133",
@@ -36,9 +39,18 @@ function geminiKey() {
   // gera um índice aleatório entre 0 e o tamanho do array
   const indiceAleatorio = Math.floor(Math.random() * apiKeys.length);
 
+
+
+  if(my_api == '' || my_api == undefined || my_api == null){
+    api_returno = apiKeys[indiceAleatorio];
+  }else{
+    api_returno = my_api;
+  } 
+ 
   // retorna a API key no índice aleatório
-  return apiKeys[indiceAleatorio];
+  return api_returno;
 }
+
 
 
 
