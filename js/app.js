@@ -453,3 +453,9 @@ setInterval(function(){
     $(".apikey").text('**********************')
   } 
 },1000)
+
+
+
+function search(e){
+  var text = $(e).val();
+}

@@ -198,8 +198,8 @@ input{
     overflow-x: auto;
 
 }
-.message div{
-
+.message li{
+    margin-bottom: 5px !important;
 }
 .chat .chat-history .message:after {
     bottom: 100%;
@@ -345,6 +345,10 @@ input{
     .chat-app .chat-history {
         height: 600px;
         overflow-x: auto
+    }
+    .box-file{
+        padding: 50px !important;
+       
     }
 }
 

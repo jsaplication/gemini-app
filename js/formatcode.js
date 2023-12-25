@@ -1,4 +1,10 @@
 
+function markdown(markdownText) {
+    // Converte o Markdown para HTML usando marked.js
+    return marked.parse(markdownText);
+}
+
+
 function formatarCodigo(codigoOriginal) {
   // Divide o código em linhas
   var linhas = codigoOriginal.split('\n');
@@ -58,7 +64,8 @@ function formatarCodigo(codigoOriginal) {
   }
 
   // Envolve o código dentro de uma <div> e adiciona o texto fora
-  return '<div>' + '<span>' + escapeHTML(textoForaCodigo) + '</span>' + explicacao + codigo + '</div>';
+  // return '<div>' + '<span>' + escapeHTML(textoForaCodigo) + '</span>' + explicacao + codigo + '</div>';
+   return '<div>' + '<span class="span-text">' + markdown(escapeHTML(textoForaCodigo))+ '</span>' + markdown(explicacao) + codigo + '</div>';
 }
 
 function escapeHTML(str) {
