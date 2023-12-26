@@ -322,7 +322,7 @@ input{
         overflow-x: auto
     }
     .perfil{
-        width: calc(100% - 70px);
+        width: calc(100% - 120px);
     }
     .menu{
         width: 50px;
@@ -332,11 +332,13 @@ input{
         z-index: 10000;
         display: block !important;
     }
+
     .menu-list{
 /*        display: block !important;*/
         left: 0px !important;
         transition: 0.5s;
     }
+
     .message{
         max-width: calc(100% - 20px) !important;
     }
@@ -344,9 +346,12 @@ input{
         width: calc(100% - 60px);
     }
 }
+
 .menu{
     display: none;
+    padding: 0;
 }
+
 @media only screen and (min-width: 768px) and (max-width: 992px) {
     .chat-app .chat-list {
         height: 650px;
@@ -375,12 +380,27 @@ input{
 .container{
    
 }
+.btn-info1{
+        width: 50px !important;
+        float: right !important;
+        position: relative;
+        top: 3px;
+        z-index: 10000;
+        display: block !important;
+        margin-right: 0px;
+        display: block !important;
+/*        margin-left: 0px;*/
+
+}
+.btn-info1 a{
+    width: 40px;
+}
 .card {
     left: 0;
     position: fixed;
     height: calc(100%);
-   
 }
+
 .digitando{
     display: inline-flex;
     font-size: 18px;
@@ -539,4 +559,7 @@ input{
 }
 .modal-content input{
     color: #fff !important;
+}
+#information1{
+    z-index: 1000000000000;
 }

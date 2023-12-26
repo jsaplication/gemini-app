@@ -459,3 +459,7 @@ setInterval(function(){
 function search(e){
   var text = $(e).val();
 }
+
+// function openLimitations(){
+//   $("#information").modal('show')
+// }
