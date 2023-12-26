@@ -76,7 +76,7 @@
                             
                         </ul>
                     </div>
-                    <div class="chat-message clearfix">
+                    <div class="chat-message clearfix input-msg">
                         <div class="digitando"><div class="ia"></div>Typing...</div>
                         <div class="input-group mb-0">
                             <!-- <div class="input-group-prepend">
@@ -96,7 +96,16 @@
                             </div>
 
 
-                            <input type="text" class="form-control" placeholder="What's on your mind?" id="pergunta" onkeydown="enter(event)" autofocus status="true">                                    
+                            <input type="text" class="form-control" placeholder="What's on your mind?" id="pergunta" onkeydown="enter(event)" autofocus status="true">
+
+
+                            <div class="input-group-prepend box-send-msg" onclick="sendMSG()">
+                                <span class="input-group-text">
+                                    <i class="fa fa-send"></i>
+                                </span>
+                            </div>
+
+
                         </div>
                     </div>
                 </div>
@@ -225,6 +234,7 @@
 </body>
 <script src="js/jquery.js"></script>
 <script src="js/jquery-3.5.1.slim.min.js"></script>
+<script src="js/speech.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/markdown.js"></script>

@@ -1,4 +1,81 @@
+function sendMSG(){
+  var pergunta = document.querySelector("#pergunta").value;
+  var statusinput =  $("#pergunta").attr('status');
+  console.log("status input", statusinput);
 
+
+  if(pergunta.trim() == ''){
+
+  }else{
+
+      if(statusinput == "true"){
+        $("#pergunta").attr('status', "false");
+        var foto = window.localStorage.getItem('foto-src');
+       
+        var fotoimg;
+
+        var fotoInput = document.querySelector("#uploadFoto");
+
+        if(fotoInput.files.length > 0){
+                if(foto == undefined || foto == '' || foto == null){
+            fotoimg = '';
+            }else{
+                fotoimg = `<br><img src="${foto}" class="img-send"/>`;
+            }
+
+            var html = `<li class="clearfix">
+                            <div class="message-data text-right">
+                              
+                            </div>
+                            <div class="message other-message float-right">${pergunta}${fotoimg}</div>
+                        </li>`;
+
+
+            $("#chat-load").append(html);
+
+            gemine(pergunta);
+
+            var suaDiv = document.querySelector(".chat-history");
+                suaDiv.scrollTop = suaDiv.scrollHeight;
+
+                 
+        }else{
+
+            if(foto == undefined || foto == '' || foto == null){
+                fotoimg = '';
+            }else{
+                fotoimg = `<br><img src="${foto}"/>`;
+            }
+
+            var html = `<li class="clearfix">
+                            <div class="message-data text-right">
+                               
+                            </div>
+                            <div class="message other-message float-right">${pergunta}</div>
+                        </li>`;
+
+
+            $("#chat-load").append(html);
+
+          
+            gemine(pergunta);
+
+            var suaDiv = document.querySelector(".chat-history");
+                suaDiv.scrollTop = suaDiv.scrollHeight;
+
+               
+        }
+
+
+
+    }else{
+
+    }
+
+    
+  }
+  
+}
 function enter(event) {
   var statusinput =  $("#pergunta").attr('status');
   console.log("status input", statusinput);
@@ -121,6 +198,8 @@ function gemine(pergunta) {
           .then(response => response.json())
           .then(obj => {
             
+          
+
 
            if(obj.hasOwnProperty('error')){
 
@@ -146,7 +225,7 @@ function gemine(pergunta) {
                  $("#pergunta").attr('status', "true");
                  $("#pergunta").focus();
                  $(".digitando").css('opacity', "0");
-
+                 $(".img-view").css("margin-right", "0px");
                  // getChats()
 
             }else if(obj.promptFeedback && 'blockReason' in obj.promptFeedback){
@@ -172,14 +251,14 @@ function gemine(pergunta) {
                  $("#pergunta").attr('status', "true");
                  $("#pergunta").focus();
                  $(".digitando").css('opacity', "0");
-
+                 // $(".img-view").css("margin-right", "0px");
                  // getChats()
 
             }else{
 
                  var string = formatarCodigo(obj.candidates[0].content.parts[0].text);
                  console.log(obj.candidates[0].content.parts[0].text);
-
+                 
 
                 var html = `<li class="clearfix">
                           <div class="message-data">
@@ -201,7 +280,7 @@ function gemine(pergunta) {
                      $("#pergunta").attr('status', "true");
                      $("#pergunta").focus();
                      $(".digitando").css('opacity', "0");
-
+                     $(".img-view").css("margin-right", "0px");
 
                     getChats()
 
@@ -299,7 +378,6 @@ function gemine(pergunta) {
           .then(obj => {
             
 
-  
 
             if(obj.hasOwnProperty('error')){
 
@@ -405,10 +483,10 @@ function gemine(pergunta) {
 function removerEspacos(texto) {
   // Expressão regular para encontrar espaços em branco
   const regex = /\s+/g;
-
   // Substitui os espaços em branco por uma string vazia
   return texto.replace(regex, "");
 }
+
 
 
 function default_apikey(){
@@ -417,6 +495,8 @@ function default_apikey(){
   $("#input_apikey").val('');
   $("#config-apikey").modal('hide');
 }
+
+
 
 function save_apikey(){
   var api = $("#input_apikey").val();

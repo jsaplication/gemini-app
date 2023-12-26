@@ -189,7 +189,7 @@ input{
     padding: 18px 20px;
     line-height: 26px;
     font-size: 16px;
-    border-radius: 7px;
+    border-radius: 20px;
 /*    display: inline-block;*/
     position: relative
     white-space: normal;
@@ -201,15 +201,14 @@ input{
 .message li{
     margin-bottom: 5px !important;
 }
-.message p{
 
-   
-
-}
 .message ul{
 
     margin-bottom: 30px;
 
+}
+.message  p{
+    margin-bottom: 0px !important;
 }
 .chat .chat-history .message:after {
     bottom: 100%;
@@ -563,4 +562,31 @@ input{
 }
 #information1{
     z-index: 1000000000000;
+}
+.box-send-msg{
+    margin-left: 10px;
+    border-radius: 10px;
+}
+.input-msg span{
+    border:none;
+    border-radius: 50px !important;
+    width: 40px;
+}
+.input-msg input[type=text]{
+    border-radius: 50px !important;
+/*    margin-left: 10px;*/
+}
+.box-send-msg span{
+    border:none;
+    border-radius: 50px !important;
+    width: 40px;
+}
+.img-view{
+    max-width: 40px;
+    margin-left: 10px;
+    padding: 2px;
+    
+}
+.img-view .input-group-text{
+    border-radius: 50px !important;
 }
