@@ -2,7 +2,7 @@ function sendMSG(){
   var pergunta = document.querySelector("#pergunta").value;
   var statusinput =  $("#pergunta").attr('status');
   console.log("status input", statusinput);
-
+  $("#pergunta").focus();
 
   if(pergunta.trim() == ''){
 
