@@ -41,6 +41,7 @@ body{
     background: #000000;
     height: calc(100%);
     padding-right: 0px;
+     -webkit-user-select: none;
 }
 
 .chat-app .chat {
@@ -131,6 +132,8 @@ input{
    
     background:#1a1d21;
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    -webkit-user-select: none;
+
 }
 
 
@@ -193,8 +196,8 @@ input{
 /*    display: inline-block;*/
     position: relative
     white-space: normal;
-    max-width: calc(70%);
-    display: inline-flex;
+/*    max-width: calc(70%);*/
+    display: inline-flex ;
     overflow-x: auto;
 
 }
@@ -300,8 +303,6 @@ input{
 @media only screen and (max-width: 767px) {
     .chat-app .people-list {
         height: 100%;
-        width: calc(100% - 75px);
-/*        overflow-x: auto;*/
         left: -400px;
         display: block;
         transition: 0.5s;
@@ -339,6 +340,9 @@ input{
     }
 
     .message{
+        max-width: calc(100%) !important;
+    }
+    .message-padd{
         max-width: calc(100% - 20px) !important;
     }
     .chat-about{
@@ -349,6 +353,7 @@ input{
 .menu{
     display: none;
     padding: 0;
+    margin-right: 10px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 992px) {
@@ -400,7 +405,9 @@ input{
     position: fixed;
     height: calc(100%);
 }
-
+.row{
+    display: block;
+}
 .digitando{
     display: inline-flex;
     font-size: 18px;
@@ -589,4 +596,65 @@ input{
 }
 .img-view .input-group-text{
     border-radius: 50px !important;
+}
+.copy{
+    float: right;
+    width: 100px;
+    height: 30px;
+    font-size: 18px;
+    color: #fff;
+    text-align: right;
+    cursor: pointer;
+    position: relative;
+    z-index: 1000;
+    margin-bottom: -30px;
+}
+.copy span{
+    font-size: 15px !important;
+}
+.copy:hove{
+    opacity: 0.5;
+}
+/*pre{
+   
+    width: 100% !important;
+    float: left;
+}*/
+.explication{
+    display: table;
+    color: #f4f4f4;
+    padding:20px;
+    line-height: 26px;
+    font-size: 16px;
+    border-radius: 20px;
+/*    max-width: calc(70%);*/
+/*    display: inline-flex;*/
+    overflow-x: auto;
+    background: #181818;
+    max-width: calc(100% - 20px)
+}
+.explication p {
+    margin-bottom: 0px;
+}
+.header-code{
+    padding-left: 20px;
+    padding-right: 20px;
+    background: #007bff;
+    color: #fff;
+    width: 100%;
+    margin-top: 20px;
+    height: 40px !important;
+    line-height: 40px !important;
+    border-radius: 20px 20px 0px 0px !important;
+     -webkit-user-select: none;
+}
+.code-print{
+    border-radius: 0px 0px 20px 20px !important;
+    width: 100%;
+    display: block !important;
+}
+.message-padd{
+    display: inline-block; !important;
+/*    background: red;*/
+    max-width: calc(70%);
 }

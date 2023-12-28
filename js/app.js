@@ -257,15 +257,44 @@ function gemine(pergunta) {
             }else{
 
                  var string = formatarCodigo(obj.candidates[0].content.parts[0].text);
-                 console.log(obj.candidates[0].content.parts[0].text);
+                //  console.log(obj.candidates[0].content.parts[0].text);
                  
 
-                var html = `<li class="clearfix">
-                          <div class="message-data">
+                // var html = `<li class="clearfix">
+                //           <div class="message-data">
                                
-                              </div>
-                              <div class="message my-message">${string}</div>                                    
-                            </li>`;
+                //               </div>
+                //               <div class="message my-message">${string}</div>                                    
+                //             </li>`;
+
+
+                 // var string = formatarCodigo(v.parts[0].text);
+                   var getText = string[0].text;
+                   var getCode = string[1].code;
+
+                   var showCode;
+                   if(getCode == ''){
+                      showCode = '';
+                   }else{
+                      showCode = `<div class="message-padd">
+                                    <div class="header-code">
+                                       <span>${string[1].lenguage}</span>
+                                      <div class="copy copy_${uidChat()}" onclick="copy(this)" uid="${uidChat()}"><i class="fa fa-copy"></i> <span>Copy code</span></div>
+                                    </div>
+
+                                    <div class="message my-message code-print code_${uidChat()}">${getCode}</div>
+                                  </div>`;
+                   }
+
+                  var html = `<li class="clearfix">
+                                <div class="message-data">
+                                  
+                                </div>
+                                <div class="explication">${getText}</div>
+                                ${showCode}                             
+                              </li>`;
+
+                              
 
                 $("#chat-load").append(html);
                 
@@ -435,14 +464,34 @@ function gemine(pergunta) {
             }else{
                 
                  var string = formatarCodigo(obj.candidates[0].content.parts[0].text);
-                 console.log(obj.candidates[0].content.parts[0].text);
+                 // console.log(obj.candidates[0].content.parts[0].text);
+                 
+                   var getText = string[0].text;
+                   var getCode = string[1].code;
 
-                var html = `<li class="clearfix">
-                              <div class="message-data">
-                                
-                              </div>
-                              <div class="message my-message">${string}</div>                                    
-                            </li>`;
+                   var showCode;
+                   if(getCode == ''){
+                      showCode = '';
+                   }else{
+                      showCode = `<div class="message-padd">
+                                    <div class="header-code">
+                                       <span>${string[1].lenguage}</span>
+                                      <div class="copy copy_${uidChat()}" onclick="copy(this)" uid="${uidChat()}"><i class="fa fa-copy"></i> <span>Copy code</span></div>
+                                    </div>
+
+                                    <div class="message my-message code-print code_${uidChat()}">${getCode}</div>
+                                  </div>`;
+                   }
+
+                  var html = `<li class="clearfix">
+                                <div class="message-data">
+                                  
+                                </div>
+                                <div class="explication">${getText}</div>
+                                ${showCode}                             
+                              </li>`;
+
+
 
                 $("#chat-load").append(html);
 
@@ -463,12 +512,6 @@ function gemine(pergunta) {
           })
           .catch(error => {
             console.error('Erro na requisição:', error);
-            
-             // $("#pergunta").val('');
-             // $("#pergunta").attr('disabled', false);
-             // $("#pergunta").focus();
-             // $(".digitando").css('opacity', "0");
-
           });
 
   }
@@ -543,3 +586,41 @@ function search(e){
 // function openLimitations(){
 //   $("#information").modal('show')
 // }
+
+
+function copy(e){
+  var uid = $(e).attr('uid');
+  copiarTexto(uid, e)
+
+}
+
+function copiarTexto(uid, e) {
+  // Obtém o elemento div
+  const div = document.querySelector(".code_"+uid);
+
+  // Seleciona o texto dentro da div
+  const selecao = window.getSelection();
+  const range = document.createRange();
+  range.selectNodeContents(div);
+  selecao.removeAllRanges();
+  selecao.addRange(range);
+
+  // Copia o texto selecionado para a área de transferência
+  document.execCommand('copy');
+
+  // Remove a seleção de texto
+  selecao.removeAllRanges();
+
+  // Exibe uma mensagem de sucesso
+  console.log('copiado')
+  $(e).html('<i class="fa fa-check"></i> <span>Copied</span>')
+ 
+
+
+  var mudarIconCopy = setInterval(function(){
+    console.log('mudou icone');
+    clearInterval(mudarIconCopy);
+    $('.copy_'+uid).html('<i class="fa fa-copy"></i> <span>Copy code</span>')
+  },2000)
+}
+

@@ -283,25 +283,35 @@ var conversa = getConversa();
                               </li>`;
                 }else{
 
-                    var img;
-                    const valorDesejado = v?.parts?.[1]?.inline_data?.data;
-                    if(valorDesejado !== undefined){
-                      img = `<br><br><img src="data:image/png;base64,${valorDesejado}">`;
-                      
-                    }else{
-                      img = ``;
-                      
-                    }
-                    var string = formatarCodigo(v.parts[0].text);
-                    // console.log(v.parts[0].text);
-                    // var string = v.parts[0].text;
 
-                    html = `<li class="clearfix">
-                                    <div class="message-data">
-                                     
+                   var string = formatarCodigo(v.parts[0].text);
+                   console.log(string);
+                   var getText = string[0].text;
+                   var getCode = string[1].code;
+                   console.log(string);
+                   var showCode;
+                   if(getCode == ''){
+                      showCode = '';
+                   }else{
+                      showCode = `<div class="message-padd">
+                                    <div class="header-code">
+                                      <span>${string[1].lenguage}</span>
+                                      <div class="copy copy_${uidChat()}" onclick="copy(this)" uid="${uidChat()}"><i class="fa fa-copy"></i> <span>Copy code</span></div>
                                     </div>
-                                    <div class="message my-message">${string}</div>                                    
-                                  </li>`;
+
+                                    <div class="message my-message code-print code_${uidChat()}">${getCode}</div>
+                                  </div>`;
+                   }
+
+                  var html = `<li class="clearfix">
+                                <div class="message-data">
+                                  
+                                </div>
+                                <div class="explication">${getText}</div>
+                                ${showCode}                             
+                              </li>`;
+
+
                 }
 
                 $("#chat-load").append(html);

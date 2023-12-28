@@ -8,7 +8,16 @@ function markdown(markdownText) {
 function formatarCodigo(codigoOriginal) {
   // Divide o código em linhas
   var linhas = codigoOriginal.split('\n');
+  // console.log("linha: ",linhas)
 
+  var lenguage;
+  if(codigoOriginal.trim().startsWith("```")){
+    lenguage = linhas[0].split('```').join('').toUpperCase();
+  }else{
+    lenguage = '';
+  }
+  
+  // console.log('lenguage:',lenguage);
   // Inicializa as variáveis para armazenar o texto e o código
   var textoForaCodigo = '';
   var dentroCodigo = false;
@@ -20,6 +29,7 @@ function formatarCodigo(codigoOriginal) {
   // Itera sobre as linhas
   for (var i = 0; i < linhas.length; i++) {
     var linha = linhas[i];
+
 
     // Verifica se a linha começa com '```'
     if (linha.trim().startsWith('```')) {
@@ -56,16 +66,25 @@ function formatarCodigo(codigoOriginal) {
       }
     }
   }
-
+  // <div class="copy" onclick="copy()"><i class="fa fa-copy"></i></div>
   // Se houver código, envolve-o em tags <pre><code> e realiza o escape HTML
   if (codigo.trim() !== '') {
-
-    codigo = '<pre><code>' + escapeHTML(codigo) + '</code></pre>';
+    codigo = '<pre id="code"><code>' + escapeHTML(codigo) + '</code></pre>';
   }
+  var msgCode = [
+                  {
+                    text: markdown(escapeHTML(textoForaCodigo)) + markdown(explicacao)
+                  },
+                  {
+                    code: codigo,
+                    lenguage: lenguage
+                  }
+  ]
 
+  return msgCode;
   // Envolve o código dentro de uma <div> e adiciona o texto fora
   // return '<div>' + '<span>' + escapeHTML(textoForaCodigo) + '</span>' + explicacao + codigo + '</div>';
-   return '<div>' + '<span class="span-text">' + markdown(escapeHTML(textoForaCodigo))+ '</span>' + markdown(explicacao) + codigo + '</div>';
+  //return '<div>' + '<span class="span-text">' + markdown(escapeHTML(textoForaCodigo))+ '</span>' + markdown(explicacao) + codigo + '</div>';
 }
 
 function escapeHTML(str) {
