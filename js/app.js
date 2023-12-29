@@ -48,7 +48,7 @@ function sendMSG(){
             }
 
             var html = `<li class="clearfix">
-                            <div class="message-data text-right">
+                            // <div class="message-data text-right">
                                
                             </div>
                             <div class="message other-message float-right">${pergunta}</div>
@@ -286,11 +286,17 @@ function gemine(pergunta) {
                                   </div>`;
                    }
 
+
+                   var explications;
+                   if(getText == ''){
+                      explications = '';
+                   }else{
+                      explications = `<div class="explication">${getText}</div>`;
+                   }
+
+
                   var html = `<li class="clearfix">
-                                <div class="message-data">
-                                  
-                                </div>
-                                <div class="explication">${getText}</div>
+                                ${explications}
                                 ${showCode}                             
                               </li>`;
 
@@ -483,11 +489,27 @@ function gemine(pergunta) {
                                   </div>`;
                    }
 
-                  var html = `<li class="clearfix">
-                                <div class="message-data">
+
+
+                  // var html = `<li class="clearfix">
+                  //               <div class="message-data">
                                   
-                                </div>
-                                <div class="explication">${getText}</div>
+                  //               </div>
+                  //               <div class="explication">${getText}</div>
+                  //               ${showCode}                             
+                  //             </li>`;
+
+
+                    var explications;
+                   if(getText == ''){
+                      explications = '';
+                   }else{
+                      explications = `<div class="explication">${getText}</div>`;
+                   }
+
+
+                  var html = `<li class="clearfix">
+                                ${explications}
                                 ${showCode}                             
                               </li>`;
 

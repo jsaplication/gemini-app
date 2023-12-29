@@ -303,11 +303,15 @@ var conversa = getConversa();
                                   </div>`;
                    }
 
+                   var explications;
+                   if(getText == ''){
+                      explications = '';
+                   }else{
+                      explications = `<div class="explication">${getText}</div>`;
+                   }
+
                   var html = `<li class="clearfix">
-                                <div class="message-data">
-                                  
-                                </div>
-                                <div class="explication">${getText}</div>
+                                ${explications}
                                 ${showCode}                             
                               </li>`;
 
