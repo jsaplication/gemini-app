@@ -17,7 +17,6 @@ function formatarCodigo(codigoOriginal) {
     lenguage = '';
   }
   
-  // console.log('lenguage:',lenguage);
   // Inicializa as variáveis para armazenar o texto e o código
   var textoForaCodigo = '';
   var dentroCodigo = false;
@@ -29,14 +28,8 @@ function formatarCodigo(codigoOriginal) {
   // Itera sobre as linhas
   for (var i = 0; i < linhas.length; i++) {
     var linha = linhas[i];
-
-
     // Verifica se a linha começa com '```'
     if (linha.trim().startsWith('```')) {
-       // var pegarLinguagem = codigoOriginal.split('```')[1].split(' ')[0];
-       // console.log('pegarLinguagem-------->',pegarLinguagem);
-       // extensao = pegarLinguagem;
-      // Inverte o estado dentroCodigo
       dentroCodigo = !dentroCodigo;
 
       // Se não estiver dentro do código, adiciona o texto fora das tags <pre><code>
@@ -82,9 +75,6 @@ function formatarCodigo(codigoOriginal) {
   ]
 
   return msgCode;
-  // Envolve o código dentro de uma <div> e adiciona o texto fora
-  // return '<div>' + '<span>' + escapeHTML(textoForaCodigo) + '</span>' + explicacao + codigo + '</div>';
-  //return '<div>' + '<span class="span-text">' + markdown(escapeHTML(textoForaCodigo))+ '</span>' + markdown(explicacao) + codigo + '</div>';
 }
 
 function escapeHTML(str) {
