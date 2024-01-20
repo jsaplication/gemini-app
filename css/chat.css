@@ -328,10 +328,10 @@ input{
         overflow-x: auto
     }
     .perfil{
-        width: calc(100% - 170px);
+        width: calc(100% - 150px);
     }
     .menu{
-        width: 50px;
+        width: 40px;
         float: right;
         position: relative;
         top: 3px;
@@ -402,7 +402,7 @@ input{
    
 }
 .btn-info1{
-        width: 50px !important;
+        width: 40px !important;
         float: right !important;
         position: relative;
         top: 3px;
@@ -410,9 +410,7 @@ input{
         display: block !important;
         margin-right: 0px;
         display: block !important;
-        
-/*        margin-left: 0px;*/
-
+        margin-left: 0px !important;
 }
 .btn-info1 a{
     width: 40px;
