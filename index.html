@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="css/chat.css">
     <link rel="stylesheet" href="css/monokai-sublime.min.css">
     
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
             t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "k9r2orzrec");
-    </script>
+    </script> -->
 
 
     <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7446377618645841"
@@ -46,7 +46,7 @@
                     <div class="box-config">
                         <div class="title-api">ApiKey</div>
                         <div class="apikey"></div>
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#config-apikey" onclick="openModalApi()"><i class="fa fa-cog"></i> Edit your ApiKey</button>
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#config-apikey" onclick="openModalApi()"><i class="fa fa-cog"></i> <span id="btn_ApiEdit"></span></button>
                     </div>
                 </div>
                 <div class="chat">
@@ -63,13 +63,17 @@
                             </div>
 
                             <div class="col-lg-6 hidden-sm text-right menu" onclick="menu()">
-                                <a href="javascript:void(0);" class="btn btn-outline-primary"><i class="fa fa-list"></i></a>
+                                <a href="javascript:void(0);" class="btn btn-color-icon"><i class="fa fa-list"></i></a>
                             </div>
 
 
 
                             <div class="btn-info1" data-toggle="modal" data-target="#information1">
-                                <a href="javascript:void(0);" class="btn btn-outline-info"><i class="fa fa-info"></i></a>
+                                <a href="javascript:void(0);" class="btn btn-color-icon"><i class="fa fa-info-circle"></i></a>
+                            </div>
+
+                            <div class="btn-info1" onclick="selectLg()">
+                                <a href="javascript:void(0);" class="btn btn-color-icon"><i class="fa fa-language"></i></a>
                             </div>
 
                            
@@ -83,7 +87,7 @@
                         </ul>
                     </div>
                     <div class="chat-message clearfix input-msg">
-                        <div class="digitando"><div class="ia"></div>Typing...</div>
+                        <div class="digitando"><div class="ia"></div><label id="typing"></label></div>
                         <div class="input-group mb-0">
                             <!-- <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fa fa-send"></i></span>
@@ -126,7 +130,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Model Configuration</h5>
+        <h5 class="modal-title" id="title-modal1"></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -137,24 +141,24 @@
               <!-- <div class="panel-heading">Configure sua ApiKey</div> -->
               <div class="panel-body">
                 <div class="tt1">
-                    <b>1.</b> To fix the Gemini communication error and improve model performance, you can add your own API KEY by visiting the website: <b>https://makersuite.google.com/app/apikey</b>
+                    <b>1.</b> <span id="text1_modal1"></span>
                     <br>
                     <br>
 
-                     <b>2.</b> After creating the account or logging in with your Google account<br>
-                     <b>3.</b> Click on  <b>Create API key in new projectb</b>.
+                     <b>2.</b> <span id="text2_modal1"></span><br>
+                     <b>3.</b> <span id="text3_modal1"></span></b>.
                      <img src="img/suite.png" width="100%"/>
                 </div>
 
 
                
                 <div class="tt1"> 
-                    <b>3.</b> Copy the key and paste it into the field below API_KEY<br>
+                    
 
                      <img src="img/suite2.png" width="100%"/>
 
-
-                    <b>4.</b> Close the application and open it again.<br>
+                     <b>4.</b> <span id="text4_modal1"></span><br>
+                    <b>5.</b> <span id="text5_modal1"></span><br>
 
                    
 
@@ -176,8 +180,8 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" onclick="default_apikey()">Restore Default Settings</button>
-        <button type="button" class="btn btn-primary" onclick="save_apikey()">Save</button>
+        <button type="button" class="btn btn-secondary " id="btn_default_model1" onclick="default_apikey()"></button>
+        <button type="button" class="btn btn-primary " id="btn_save_model1" onclick="save_apikey()"></button>
       </div>
     </div>
   </div>
@@ -188,7 +192,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="information1">Limitations</h5>
+        <h5 class="modal-title" id="title_modal2"></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -200,31 +204,21 @@
               <div class="panel-body">
                 <div class="tt1">
                     
-                     <h3>Artificial Intelligence Model with Limitations</h3>
+                     <h3 id="text1_modal2"></h3>
 
-                      <p>This artificial intelligence (AI) model was developed to provide useful information and assistance to users. However, it is important to remember that this model has its limitations.</p>
+                      <p id="text2_modal2"></p>
 
-                      <h2>Limitations:</h2>
+                      <h2 id="text3_modal2"></h2>
 
-                      <ul>
-                        <li>The model is not capable of generating responses that are 100% accurate or complete.</li>
-                        <li>The model is not capable of understanding or responding to complex or ambiguous questions.</li>
-                        <li>The model is not capable of generating responses that are offensive, discriminatory, or illegal.</li>
-                        <li>The model is not capable of generating responses that are of a personal or confidential nature.</li>
-                      </ul>
+                      <span id="text4_modal2"></span>
 
-                      <h2>Responsible use:</h2>
+                      <h2 id="text5_modal2"></h2>
 
-                      <ul>
-                        <li>The model should only be used for legal and ethical purposes.</li>
-                        <li>The model should not be used to harm or deceive others.</li>
-                        <li>The model should not be used to generate content that is false or misleading.</li>
-                        <li>The model should not be used to generate content that is harmful to children or other vulnerable groups.</li>
-                      </ul>
+                      <span id="text6_modal2"></span>
 
                       <p>
-                            <strong>Note:</strong> This model is constantly evolving and learning. As the model learns more, its limitations may change.
-                          </p>
+                        <strong>Note:</strong> <span id="note"></span>
+                      </p>
 
 
                     </div>
@@ -236,6 +230,26 @@
     </div>
 </div>
 
+<div class="translations">
+    <button class="btn btn-close-lg" onclick="closeLg()"><i class="fa fa-times"></i></button>
+    <div class="box-lg">
+      <center><img src="img/ia.jpeg" width="100px"></center>
+      <div class="title-lg">Select Language</div>
+            <select class="form-control" id="select-lg">
+                <option lg="chinese">Chinese</option>
+                <option lg="spanish">Spanish</option>
+                <option lg="english">English</option>
+                <option lg="hindi">Hindi</option> 
+                <option lg="arabic">Arabic</option>       
+                <option lg="portuguese">Portuguese</option>
+                <option lg="bengali">Bengali</option> 
+                <option lg="russian">Russian</option> 
+                <option lg="urdu">Urdu</option> 
+                <option lg="french">French</option>
+            </select>
+        <center><button class="btn btn-primary" onclick="saveLg()"><i class="fa fa-very"></i>Save</button></center>
+    </div>
+</div>
 
 </body>
 <script src="js/jquery.js"></script>

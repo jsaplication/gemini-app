@@ -1,0 +1,23 @@
+{
+	"intro": "Explore a IA em linguagem natural! Este aplicativo, da mais recente família de modelos avançados, oferece o necessário para começar a experimentar a inovação. Mergulhe agora na inteligência artificial!",
+	"btn_newchat": " Novo Chat",
+	"btn_ApiEdit": " Editar sua Chave de API",
+	"title_Modal1": "Configuração do Modelo",
+	"text1_modal1": "Para corrigir o erro de comunicação do Gemini e melhorar o desempenho do modelo, você pode adicionar sua própria CHAVE DE API visitando o site: https://makersuite.google.com/app/apikey",
+	"text2_modal1": "Após criar a conta ou fazer login com sua conta do Google",
+	"text3_modal1": "Clique em Criar chave de API em novo projeto.",
+	"text4_modal1": "Copie a chave e cole no campo abaixo API_KEY",
+	"text5_modal1": "Feche o aplicativo e abra novamente.",
+	"btn_save_modal1": "Salvar",
+	"btn_default_modal1": "Restaurar Configurações Padrão",
+	"title_Modal2": "Limitações",
+	"text1_modal2": "Modelo de Inteligência Artificial com Limitações",
+	"text2_modal2": "Este modelo de inteligência artificial (IA) foi desenvolvido para fornecer informações úteis e assistência aos usuários. No entanto, é importante lembrar que este modelo tem suas limitações.",
+	"text3_modal2": "Limitações:",
+	"text4_modal2": "O modelo não é capaz de gerar respostas 100% precisas ou completas.\n O modelo não é capaz de entender ou responder a perguntas complexas ou ambíguas.\n O modelo não é capaz de gerar respostas ofensivas, discriminatórias ou ilegais.\n O modelo não é capaz de gerar respostas de natureza pessoal ou confidencial.",
+	"text5_modal2": "Uso responsável:",
+	"text6_modal2": "O modelo deve ser usado apenas para fins legais e éticos.\n O modelo não deve ser usado para prejudicar ou enganar os outros.\n O modelo não deve ser usado para gerar conteúdo falso ou enganoso.\n O modelo não deve ser usado para gerar conteúdo prejudicial a crianças ou outros grupos vulneráveis.",
+	"note": "Este modelo está em constante evolução e aprendizado. À medida que o modelo aprende mais, suas limitações podem mudar.",
+	"error_api": "Erro na solicitação. Se o erro persistir, configure uma CHAVE DE API pessoal.",
+	"typing":"Digitando..."
+}

@@ -13,7 +13,12 @@ function obterHoraEDataAtual() {
 
     return `${dia}/${mes}/${ano} ${hora}:${minutos}`;
 }
-
+function intro(){
+  return window.localStorage.getItem('intro_text');
+}
+function btnnewchat() {
+  return window.localStorage.getItem('btnnewchat');
+}
 
 function filtrarMensagens(mensagens) {
   const mensagensFiltradas = [];
@@ -348,11 +353,11 @@ var conversa = getConversa();
      $("#chat-load").html(`
                         <div class="bem-vindo">
                           <div class="box-bem">
-                         How can I help you today?
+                         Gemini Chat
                          <br>
 
-                         <span>Gemini is Google's latest family of large language models. This Application contains all the necessary functionality for you to start testing Gemini.</span>
-                        <button class="btn btn-primary" onclick="newChat()"><i class="fa fa-commenting-o"></i> Chat with Gemini</button>
+                         <span>${intro()}</span>
+                        <button class="btn btn-primary" onclick="newChat()"><i class="fa fa-commenting-o"></i> ${btnnewchat()}</button>
 
                         </div>
                         </div>`);

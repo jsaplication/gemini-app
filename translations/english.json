@@ -1,0 +1,23 @@
+{
+		"intro":"Explore AI in natural language! This app, from the latest family of advanced models, gives you what you need to start experiencing innovation. Dive into artificial intelligence now!",
+		"btn_newchat":" NewChat",
+		"btn_ApiEdit":" Edit your ApiKey",
+		"title_Modal1":"Model Configuration",
+		"text1_modal1":" To fix the Gemini communication error and improve model performance, you can add your own API KEY by visiting the website: https://makersuite.google.com/app/apikey",
+		"text2_modal1":" After creating the account or logging in with your Google account",
+		"text3_modal1":"Click on Create API key in new projectb.",
+		"text4_modal1":"Copy the key and paste it into the field below API_KEY",
+		"text5_modal1":"Close the application and open it again.",
+		"btn_save_modal1":"Save",
+		"btn_default_modal1":"Restore Default Settings",
+		"title_Modal2":"Limitations",
+		"text1_modal2":"Artificial Intelligence Model with Limitations",
+		"text2_modal2":"This artificial intelligence (AI) model was developed to provide useful information and assistance to users. However, it is important to remember that this model has its limitations.",
+		"text3_modal2":"Limitations:",
+		"text4_modal2":"The model is not capable of generating responses that are 100% accurate or complete.\n The model is not capable of understanding or responding to complex or ambiguous questions.\n The model is not capable of generating responses that are offensive, discriminatory, or illegal.\n The model is not capable of generating responses that are of a personal or confidential nature.",
+		"text5_modal2":"Responsible use:",
+		"text6_modal2":"The model should only be used for legal and ethical purposes.\n The model should not be used to harm or deceive others.\n The model should not be used to generate content that is false or misleading. \n The model should not be used to generate content that is harmful to children or other vulnerable groups.",
+		"note":"This model is constantly evolving and learning. As the model learns more, its limitations may change.",
+		"error_api":"Request error. if the error persists, configure a personal APIKEY",
+		"typing":"Typing..."
+}

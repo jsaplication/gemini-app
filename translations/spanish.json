@@ -1,0 +1,23 @@
+{
+  "intro": "¡Explora la IA en procesamiento de lenguaje natural! Esta aplicación, de la última familia de modelos avanzados, proporciona todo lo necesario para comenzar a experimentar con la innovación. ¡Sumérgete ahora en la inteligencia artificial!",
+  "btn_newchat": "Nuevo Chat",
+  "btn_ApiEdit": "Editar tu Clave de API",
+  "title_Modal1": "Configuración del Modelo",
+  "text1_modal1": "Para corregir el error de comunicación de Gemini y mejorar el rendimiento del modelo, puedes agregar tu propia CLAVE DE API visitando el sitio: https://makersuite.google.com/app/apikey",
+  "text2_modal1": "Después de crear la cuenta o iniciar sesión con tu cuenta de Google",
+  "text3_modal1": "Haz clic en Crear clave de API en nuevo proyecto.",
+  "text4_modal1": "Copia la clave y pégala en el campo API_KEY a continuación.",
+  "text5_modal1": "Cierra la aplicación y ábrela nuevamente.",
+  "btn_save_modal1": "Guardar",
+  "btn_default_modal1": "Restaurar Configuración Predeterminada",
+  "title_Modal2": "Limitaciones",
+  "text1_modal2": "Modelo de Inteligencia Artificial con Limitaciones",
+  "text2_modal2": "Este modelo de inteligencia artificial (IA) fue desarrollado para proporcionar información útil y asistencia a los usuarios. Sin embargo, es importante recordar que este modelo tiene sus limitaciones.",
+  "text3_modal2": "Limitaciones:",
+  "text4_modal2": "El modelo no es capaz de generar respuestas 100% precisas o completas.\n El modelo no es capaz de entender o responder a preguntas complejas o ambiguas.\n El modelo no es capaz de generar respuestas ofensivas, discriminatorias o ilegales.\n El modelo no es capaz de generar respuestas de naturaleza personal o confidencial.",
+  "text5_modal2": "Uso responsable:",
+  "text6_modal2": "El modelo debe utilizarse solo con fines legales y éticos.\n El modelo no debe usarse para dañar o engañar a otros.\n El modelo no debe usarse para generar contenido falso o engañoso.\n El modelo no debe usarse para generar contenido perjudicial para niños u otros grupos vulnerables.",
+  "note": "Este modelo está en constante evolución y aprendizaje. A medida que el modelo aprende más, sus limitaciones pueden cambiar.",
+  "error_api": "Error en la solicitud. Si el error persiste, configura una CLAVE DE API personal.",
+  "typing": "Escribiendo..."
+}

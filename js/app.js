@@ -1,3 +1,90 @@
+function saveLg(){
+    var lg = $("#select-lg option:selected").attr('lg')
+    console.log(lg)
+    window.localStorage.setItem('lgn', lg);
+    window.location.reload(true);
+}
+
+var lgn = window.localStorage.getItem('lgn');
+if(lgn == null || lgn == undefined || lgn == ''){
+    console.log('sem linguem selecionada')
+    $(".translations").show();
+    $(".translations").css('display', 'flex');
+}else{  
+    console.log('linguem selecionada:', lgn)
+    $(".translations").hide();
+}
+
+function errorStatus(){
+    return  window.localStorage.getItem('error_status');
+}
+
+function leguageatual(){
+    var lgn = window.localStorage.getItem('lgn');
+    if(lgn == null || lgn == undefined || lgn == ''){
+        return 'english';
+    }else{  
+        return lgn;
+    }
+}
+
+function selectLg(){
+    $(".translations").show();
+    $(".translations").css('display', 'flex');
+}
+function closeLg(){
+    $(".translations").hide();
+    // $(".translations").css('display', 'flex');
+}
+
+function getJSONS() {
+    var lg = leguageatual();
+    console.log('-->', lg);
+
+    fetch("translations/" + lg + ".json")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro na solicitação do arquivo JSON');
+            }
+            return response.json();
+        })
+        .then(obj => {
+            console.log(obj);
+            $("#title-modal1").text(obj.title_Modal1)
+            $("#text1_modal1").text(obj.text1_modal1)
+            $("#text2_modal1").text(obj.text2_modal1)
+            $("#text3_modal1").text(obj.text3_modal1)
+            $("#text4_modal1").text(obj.text4_modal1)
+            $("#text5_modal1").text(obj.text5_modal1)
+            $("#btn_default_model1").text(obj.btn_default_modal1)
+            $("#btn_save_model1").text(obj.btn_save_modal1)
+            $("#btn_ApiEdit").text(obj.btn_ApiEdit)
+
+            $("#typing").text(obj.typing)
+
+
+            $("#title_modal2").text(obj.title_Modal2)
+            $("#text1_modal2").text(obj.text1_modal2)
+            $("#text2_modal2").text(obj.text2_modal2)
+            $("#text3_modal2").text(obj.text3_modal2)
+            $("#text4_modal2").html(obj.text4_modal2.split('.').join('.<br><br>'))
+            $("#text5_modal2").text(obj.text5_modal2)
+            $("#text6_modal2").html(obj.text6_modal2.split('.').join('.<br><br>'))
+            $("#note").text(obj.note)
+
+            window.localStorage.setItem('error_status', obj.error_api);
+            window.localStorage.setItem('intro_text', obj.intro);
+            window.localStorage.setItem('btnnewchat', obj.btn_newchat);
+
+            getConversas1();
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+        });
+}
+
+getJSONS();
+  
 function sendMSG(){
   var pergunta = document.querySelector("#pergunta").value;
   var statusinput =  $("#pergunta").attr('status');
@@ -210,7 +297,7 @@ function gemine(pergunta) {
                               <div class="message-data">
                                
                               </div>
-                              <div class="message my-message" style="color: red">Request error. if the error persists, configure a personal APIKEY</div>                                    
+                              <div class="message my-message" style="color: red">${errorStatus()}</div>                                    
                             </li>`;
 
                 $("#chat-load").append(html);
@@ -236,7 +323,7 @@ function gemine(pergunta) {
                               <div class="message-data">
                                 
                               </div>
-                              <div class="message my-message" style="color: red">Request error. if the error persists, configure a personal APIKEY</div>                                    
+                              <div class="message my-message" style="color: red">${errorStatus()}</div>                                    
                             </li>`;
 
                 $("#chat-load").append(html);
@@ -336,7 +423,7 @@ function gemine(pergunta) {
                               <div class="message-data">
                                
                               </div>
-                              <div class="message my-message" style="color: red">Request error. if the error persists, configure a personal APIKEY</div>                                    
+                              <div class="message my-message" style="color: red">${errorStatus()}</div>                                    
                             </li>`;
 
                 $("#chat-load").append(html);
@@ -426,7 +513,7 @@ function gemine(pergunta) {
                               <div class="message-data">
                                
                               </div>
-                              <div class="message my-message" style="color: red">Request error. if the error persists, configure a personal APIKEY</div>                                    
+                              <div class="message my-message" style="color: red">${errorStatus()}</div>                                    
                             </li>`;
 
                 $("#chat-load").append(html);
@@ -449,7 +536,7 @@ function gemine(pergunta) {
                               <div class="message-data">
                                
                               </div>
-                              <div class="message my-message" style="color: red">Request error. if the error persists, configure a personal APIKEY</div>                                    
+                              <div class="message my-message" style="color: red">${errorStatus()}</div>                                    
                             </li>`;
 
                 $("#chat-load").append(html);
@@ -491,14 +578,7 @@ function gemine(pergunta) {
 
 
 
-                  // var html = `<li class="clearfix">
-                  //               <div class="message-data">
-                                  
-                  //               </div>
-                  //               <div class="explication">${getText}</div>
-                  //               ${showCode}                             
-                  //             </li>`;
-
+               
 
                     var explications;
                    if(getText == ''){

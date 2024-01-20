@@ -1,0 +1,23 @@
+{
+  "intro": "Explorez l'IA en traitement du langage naturel ! Cette application, de la dernière famille de modèles avancés, offre tout ce dont vous avez besoin pour commencer à expérimenter l'innovation. Plongez dès maintenant dans l'intelligence artificielle !",
+  "btn_newchat": "Nouveau Chat",
+  "btn_ApiEdit": "Modifier votre Clé API",
+  "title_Modal1": "Configuration du Modèle",
+  "text1_modal1": "Pour corriger l'erreur de communication de Gemini et améliorer les performances du modèle, vous pouvez ajouter votre propre CLÉ API en visitant le site : https://makersuite.google.com/app/apikey",
+  "text2_modal1": "Après avoir créé un compte ou vous être connecté avec votre compte Google",
+  "text3_modal1": "Cliquez sur Créer une clé API dans un nouveau projet.",
+  "text4_modal1": "Copiez la clé et collez-la dans le champ API_KEY ci-dessous.",
+  "text5_modal1": "Fermez l'application et rouvrez-la.",
+  "btn_save_modal1": "Enregistrer",
+  "btn_default_modal1": "Restaurer les Paramètres par Défaut",
+  "title_Modal2": "Limitations",
+  "text1_modal2": "Modèle d'Intelligence Artificielle avec Limitations",
+  "text2_modal2": "Ce modèle d'intelligence artificielle (IA) a été développé pour fournir des informations utiles et une assistance aux utilisateurs. Cependant, il est important de se rappeler que ce modèle a ses limites.",
+  "text3_modal2": "Limitations :",
+  "text4_modal2": "Le modèle n'est pas capable de générer des réponses à 100 % précises ou complètes.\n Le modèle n'est pas capable de comprendre ou de répondre à des questions complexes ou ambiguës.\n Le modèle n'est pas capable de générer des réponses offensantes, discriminatoires ou illégales.\n Le modèle n'est pas capable de générer des réponses de nature personnelle ou confidentielle.",
+  "text5_modal2": "Utilisation responsable :",
+  "text6_modal2": "Le modèle doit être utilisé uniquement à des fins légales et éthiques.\n Le modèle ne doit pas être utilisé pour nuire ou tromper les autres.\n Le modèle ne doit pas être utilisé pour générer du contenu faux ou trompeur.\n Le modèle ne doit pas être utilisé pour générer du contenu préjudiciable aux enfants ou à d'autres groupes vulnérables.",
+  "note": "Ce modèle est en constante évolution et apprentissage. À mesure que le modèle apprend davantage, ses limitations peuvent changer.",
+  "error_api": "Erreur de demande. Si l'erreur persiste, configurez une CLÉ API personnelle.",
+  "typing": "En train d'écrire..."
+}
