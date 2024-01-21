@@ -434,6 +434,9 @@ input{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     opacity: 0;
 }
+.digitando label{
+    margin-bottom: 0px !important;
+}
 .input-group-text{
     background: #333 ;
     color: #dadada;
