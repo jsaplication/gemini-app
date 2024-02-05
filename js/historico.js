@@ -353,7 +353,7 @@ var conversa = getConversa();
      $("#chat-load").html(`
                         <div class="bem-vindo">
                           <div class="box-bem">
-                         Gemini Chat
+                         NeuraChat
                          <br>
 
                          <span>${intro()}</span>
