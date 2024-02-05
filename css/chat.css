@@ -732,3 +732,6 @@ select:focus {
     color: #fff !important;
     font-size: 20px;
 }
+.translations h2{
+    color: #fff;
+}
