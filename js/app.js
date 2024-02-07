@@ -5,17 +5,17 @@ function saveLg(){
     window.location.reload(true);
 }
 
-var lgn = window.localStorage.getItem('lgn');
-if(lgn == null || lgn == undefined || lgn == ''){
-    console.log('sem linguem selecionada')
-    $(".translations").show();
-    $(".translations").css('display', 'flex');
-    $("#closebtnlg").hide();
-}else{  
-    console.log('linguem selecionada:', lgn)
-    $(".translations").hide();
-    $("#closebtnlg").show();
-}
+// var lgn = window.localStorage.getItem('lgn');
+// if(lgn == null || lgn == undefined || lgn == ''){
+//     console.log('sem linguem selecionada')
+//     $(".translations").show();
+//     $(".translations").css('display', 'flex');
+//     $("#closebtnlg").hide();
+// }else{  
+//     console.log('linguem selecionada:', lgn)
+//     $(".translations").hide();
+//     $("#closebtnlg").show();
+// }
 
 function errorStatus(){
     return  window.localStorage.getItem('error_status');
